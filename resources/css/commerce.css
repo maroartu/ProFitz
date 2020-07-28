@@ -1,0 +1,224 @@
+/*****************************Body**************************************/
+
+body {
+    font-family: "Patua One", cursive;
+    background-color: #221d2b;
+}
+
+
+/**************************Navbar**************************************/
+
+
+/* Color del fondo*/
+
+.navbar-principal {
+    background-color: #14111a;
+}
+
+
+/* Logo */
+
+.primario {
+    margin-top: 1.4px;
+}
+
+.secundario-pequeño {
+    margin-top: 2.9px;
+}
+
+.secundario-mediano {
+    margin-top: 2.9px;
+}
+
+.primario img {
+    width: 190px;
+}
+
+.secundario-pequeño img {
+    width: 51px;
+}
+
+.secundario-mediano img {
+    width: 60px;
+}
+
+
+/* Icono ayuda */
+
+.pequeño-ayuda {
+    background-color: #221d2b;
+}
+
+
+/* Navbar buscar */
+
+.navbar-buscar {
+    background-color: #ffaa00;
+    transition-delay: 0.3s;
+    transition-duration: 0.4s;
+}
+
+.navbar-buscar:hover {
+    background-color: #221d2b;
+}
+
+
+/************************** sidenav **********************************/
+
+
+/* Color de la letra */
+
+.sidenav li a {
+    color: white;
+}
+
+
+/* Iconos */
+
+.sidenav li a i.material-icons {
+    color: white;
+}
+
+
+/* Color subheader */
+
+.sidenav li a.subheader {
+    color: #a8a8a8;
+}
+
+
+/* Color del fondo */
+
+.sidenav-pequeño {
+    background-color: #221d2b;
+}
+
+
+/************************* Dropdown perfil *******************************/
+
+
+/* Color letra*/
+
+ul#dropdown-más-perfil.dropdown-content li a {
+    color: white;
+}
+
+
+/*******************************Tabs bicicleta************************************/
+
+.tabs-bicicleta {
+    background-color: black;
+    color: white;
+}
+
+
+/*********************************Main***********************************/
+
+
+/* Separadores */
+
+.separador-estilo-tabs {
+    height: 110px;
+}
+
+.separador-estilo {
+    height: 80px;
+}
+
+.separador-imagenes-main {
+    height: 90px;
+}
+
+
+/* Carrusel del tipo de producto bicicleta */
+
+.contenedor-index {
+    padding-top: 10px;
+}
+
+.contenedor-final-index {
+    padding-bottom: 30px;
+}
+
+
+/* Borde del carrusel  */
+
+.carrusel-estilo {
+    border-radius: 2em;
+}
+
+
+/********************************** Footer ******************************************/
+
+
+/* Color del fondo */
+
+.page-footer {
+    background-color: #14111a;
+}
+
+
+/* Color segundo fondo o navbar de copyright */
+
+div.footer-copyright.footer-copyright-estilo {
+    background-color: #ffaa00;
+}
+
+
+/* Letra del tema de redes sociales */
+
+.red-social-principal {
+    margin-bottom: 10px;
+}
+
+
+/* Tamaño del icono de las redes sociales */
+
+.icono-red-social a img {
+    width: 50px;
+}
+
+
+/* Icono ubicación */
+
+.icono-ubicacion {
+    color: red;
+}
+
+.icono-ubicacion:hover {
+    color: white;
+}
+
+
+/****************************** Otros **************************************/
+
+
+/* Icono ayuda */
+
+.icono-ayuda {
+    background-color: #14111ab9;
+}
+
+.icono-ayuda:hover {
+    background-color: #14111a;
+}
+
+
+/************************Página producto*********************************/
+
+
+/* Separación productos relacionados */
+
+
+/* Producto principal cuadro */
+
+.producto-principal {
+    border-radius: 1em;
+}
+
+
+/* imagen del producto */
+
+.imagen-producto-principal-distancia {
+    margin-top: 90px;
+}
