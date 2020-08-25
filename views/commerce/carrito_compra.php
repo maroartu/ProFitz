@@ -12,7 +12,7 @@ Page::headerTemplate('ProFitz');
             </div>
             <div class="col l6 s12">
                 <!-- Producto -->
-                <div class="col l12 white" style="border-radius: 1em; padding-bottom: 15px;">
+                <div class="col l12 white carrito_compra_productos">
                     <!-- Nombre del producto -->
                     <div class="col l12 s12">
                         <h5 class="hide-on-med-and-down">Bicicleta Master</h5>
@@ -76,10 +76,6 @@ Page::headerTemplate('ProFitz');
                         <div class="col l8">
                             <h6>$ 14.67</h6>
                         </div>
-                        <!-- Cambiar dirección -->
-                        <div class="col l12">
-                            <a href="" class="waves-effect waves-light btn orange tooltipped" data-position="bottom" data-tooltip="Cambiar dirección">Cambiar dirección</a>
-                        </div>
                         <!-- Cantidad -->
                         <div class="col l5">
                             <h6>Cantidad: </h6>
@@ -87,7 +83,11 @@ Page::headerTemplate('ProFitz');
                         <div class="col l7">
                             <h6>12</h6>
                         </div>
-                        <div class="col l12" style="margin-bottom: 15px;">
+                        <!-- Cambiar dirección -->
+                        <div class="direccion_carrito_compra col l12">
+                            <a href="" class="waves-effect waves-light btn orange tooltipped" data-position="bottom" data-tooltip="Cambiar dirección">Cambiar dirección</a>
+                        </div>
+                        <div class="finalizar_compra_carrito_compra col l12" >
                             <a href="" class="waves-effect waves-light btn orange tooltipped" data-position="bottom" data-tooltip="Finalizar compra">Finalizar</a>
                         </div>
                     </div>

@@ -1,0 +1,97 @@
+<?php
+require_once('../../core/helpers/commerce.php');
+Page::headerTemplate('ProFitz');
+?>
+
+<!-- Separador -->
+<div class="col l12 separador-estilo"></div>
+
+<div class="container white">
+    <!-- Separador -->
+    <div class="col l12 separador-estilo"></div>
+    <!-- Título para la página web -->
+    <h4 class="center-align indigo-text">Regístrate como cliente</h4>
+    <!-- Formulario para crear cuenta -->
+    <form method="post" id="register-form">
+        <!-- Campo oculto para asignar el token del reCAPTCHA -->
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_box</i>
+                <input type="text" id="nombres_cliente" name="nombres_cliente" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" class="validate" required />
+                <label for="nombres_cliente">Nombres</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_box</i>
+                <input type="text" id="apellidos_cliente" name="apellidos_cliente" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" class="validate" required />
+                <label for="apellidos_cliente">Apellidos</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">email</i>
+                <input type="email" id="correo_cliente" name="correo_cliente" maxlength="100" class="validate" required />
+                <label for="correo_cliente">Correo electrónico</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">how_to_reg</i>
+                <input type="text" id="dui_cliente" name="dui_cliente" placeholder="00000000-0" pattern="[0-9]{8}[-][0-9]{1}" class="validate" required />
+                <label for="dui_cliente">DUI</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">phone</i>
+                <input type="text" id="telefono_cliente" name="telefono_cliente" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" class="validate" required />
+                <label for="telefono_cliente">Teléfono</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">cake</i>
+                <input type="date" id="nacimiento_cliente" name="nacimiento_cliente" class="validate" required />
+                <label for="nacimiento_cliente">Nacimiento</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">security</i>
+                <input type="password" id="clave_cliente" name="clave_cliente" class="validate" required />
+                <label for="clave_cliente">Clave</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">security</i>
+                <input type="password" id="confirmar_clave" name="confirmar_clave" class="validate" required />
+                <label for="confirmar_clave">Confirmar clave</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">place</i>
+                <input type="text" id="direccion_cliente" name="direccion_cliente" maxlength="200" class="validate" required />
+                <label for="direccion_cliente">Dirección</label>
+            </div>
+            <div class="input-field col s6 m6">
+                <i class="material-icons prefix">shopping_basket</i>
+                <select id="departamento_cliente" name="departamento_cliente">
+                </select>
+                <label>Departamento cliente</label>
+            </div>
+            <label class="center-align col s12">
+                <input type="checkbox" id="condicion" name="condicion" required />
+                <span>Acepto <a href="#terminos" class="modal-trigger">términos y condiciones</a></span>
+            </label>
+        </div>
+        <div class="row center-align">
+            <div class="col s6">
+                <button type="submit" onclick="console.log($('#nacimiento_cliente').val())" class="btn waves-effect blue tooltipped" data-tooltip="Registrar"><i class="material-icons">send</i></button>
+            </div>
+        </div>
+        <!-- Separador -->
+    <div class="col l12 separador-estilo"></div>
+    </form>
+</div>
+
+<!-- Importación del archivo para que funcione el reCAPTCHA. Para más información https://developers.google.com/recaptcha/docs/v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LdBzLQUAAAAAJvH-aCUUJgliLOjLcmrHN06RFXT"></script>
+
+<!-- Icono de ayuda -->
+<div class="fixed-action-btn hide-on-small-only">
+    <a href="../../views/commerce/pagina_soporte.php" class="btn-floating btn tooltipped icono-ayuda" data-position="left" data-tooltip="Soporte">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
+
+<?php
+Page::footerTemplate('');
+?>

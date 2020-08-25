@@ -1,40 +1,78 @@
 <?php
 class Page
 {
-    public static function headerTemplate(){
+    public static function headerTemplate($title)
+    {
+        //Se activa o reanuda una sesión
+        session_start();
+
+        //Se imprime el encabezado del documento
         print('
-            <!doctype html>
-<html lang="es">
-
-<head>
-    <!-- Se especifica la codificación de caracteres para el documento -->
-    <meta charset="utf-8">
-    <!-- Se indica al navegador que la página web está optimizada para dispositivos móviles -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título del documento -->
-    <title>ProFitz</title>
-    <!-- Logo de la página -->
-    <link rel="icon" href="../../resources/img/logos_tienda/logo_mini_blanco.ico">
-    <!-- Importación de archivos CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="../../resources/css/commerce.css" type="text/css">
-    <!-- Llamada a un archivo tipo icono -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Llamada al tipo de fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
-
-
-</head>
-
-<body>
-    <!-- Encabezado del documento -->
-    <header>
-
+        <!DOCTYPE html>
+        <html lang="es">
+            <head>
+                <!-- Se especifica la codificación de caracteres para el documento -->
+                <meta charset="utf-8">
+                <!-- Se indica al navegador que la página web está optimizada para dispositivos móviles -->
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <!-- Título del documento -->
+                <title>ProFitz</title>
+                <!-- Logo de la página -->
+                <link rel="icon" href="../../resources/img/logos_tienda/logo_mini_blanco.ico">
+                <!-- Importación de archivos CSS -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+                <link rel="stylesheet" href="../../resources/css/commerce.css" type="text/css">
+                <!-- Llamada a un archivo tipo icono -->
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                <!-- Llamada al tipo de fuente -->
+                <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+            </head>
+            <body>
+    ');
+        // Se obtiene el nombre del archivo de la página web actual.
+        $filename = basename($_SERVER['PHP_SELF']);
+        // Se comprueba si existe una sesión de cliente para mostrar el menú de opciones, de lo contrario se muestra otro menú.
+        if (isset($_SESSION['id_cliente'])) {
+            //Este es cuando ya ttenes una cuenta iniciada
+            // Se verifica si la página web actual es diferente a login.php y register.php, de lo contrario se direcciona a index.php
+            if ($filename != 'pagina_iniciar_sesion.php' && $filename != 'signin.php') { 
+                print('
+                    <header>
+                    <div class="navbar-fixed">
+                        <nav class="grey darken-4">
+                            <div class="nav-wrapper">
+                                <a href="index.php" class="brand-logo"><img src="../../resources/img/logos_tienda/logo_mini_blanco.png" height="6   0"></a>
+                                <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                                <ul class="right hide-on-med-and-down">
+                                    <li><a href="index.php"><i class="material-icons left">view_module</i>Catálogo</a></li>
+                                    <li><a href="cart.php"><i class="material-icons left">shopping_cart</i>Carrito</a></li>
+                                    <li><a href="#" onclick="logOut()"><i class="material-icons left">close</i>Cerrar sesión</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <ul class="sidenav grey darken-4" id="mobile">
+                        <li><a href="index.php"><i class="material-icons left">view_module</i>Catálogo</a></li>
+                        <li><a href="cart.php"><i class="material-icons left">shopping_cart</i>Carrito</a></li>
+                        <li><a href="#" onclick="logOut()"><i class="material-icons left">close</i>Cerrar sesión</a></li>
+                    </ul>
+                </header>
+                <main>
+        ');
+            } else {
+                header('location: index.php');
+            }
+        } else {
+            //Cuando entras como visitante, sin logearte
+            // Se verifica si la página web actual es diferente a index.php (Iniciar sesión) y a register.php (Crear primer usuario) para direccionar a index.php, de lo contrario se muestra un menú vacío.
+            if ($filename != 'carrito_compra.php') {
+                print('
+                <header>
         <!-- Dropdown más de perfil -->
         <ul id="dropdown-más-perfil" class="dropdown-content blue-grey darken-4">
-            <li><a href="../../views/commerce/pagina_iniciar_sesion.php">Perfil</a></li>
+            <li><a href="../../views/commerce/pagina_iniciar_sesion.php">Iniciar sesión</a></li>
             <li class="divider"></li>
-            <li><a href="../../views/commerce/pagina_pedidos">Pedidos</a></li>
+            <li><a href="../../views/commerce/signin.php">Registrarse</a></li>
         </ul>
 
 
@@ -56,8 +94,6 @@ class Page
 
                     <!-- Sección derecha -->
                     <ul class="right hide-on-small-only">
-                        <li><a class="tooltipped" data-position="bottom" data-tooltip="Carrito de compras" href="../../views/commerce/carrito_compra.php"><i
-                                    class="material-icons">shopping_cart</i></a></li>
                         <li><a class="dropdown-trigger tooltipped" data-position="bottom" data-tooltip="Más" href="" data-target="dropdown-más-perfil"><i class="material-icons">account_circle
                                     keyboard_arrow_down</i></a></li>
                     </ul>
@@ -93,19 +129,11 @@ class Page
 
         <!-- Sidenav -->
         <ul id="slide-out" class="sidenav sidenav-pequeño">
-            <li>
-                <div class="user-view">
-                    <div class="background">
-                        <img src="../../resources/img/sidenav/office.png">
-                    </div>
-                    <a href="#user"><img class="circle" src="../../resources/img/sidenav/yuna.jpg"></a>
-                    <a href="#name"><span class="white-text name">Arturo Martínez</span></a>
-                    <a href="#email"><span class="white-text email">maroartu@gmail.com</span></a>
-                </div>
-            </li>
-            <li><a href="#!"><i class="material-icons">account_circle</i>Perfil</a></li>
-            <li><a href="#!"><i class="material-icons">shopping_cart</i>Carrito de compras</a></li>
-            <li><a href="#!"><i class="material-icons">airport_shuttle</i>Pedidos</a></li>
+            
+            <li><a href="../../views/commerce/pagina_iniciar_sesion.php">Perfil</a></li>
+            <li class="divider"></li>
+            <li><a href="../../views/commerce/signin.php">Registrarse</a></li>
+            
             <li>
                 <div class="divider grey darken-3"></div>
             </li>
@@ -119,8 +147,14 @@ class Page
     </header>
     <!-- Contenido principal del documento -->
     <main>
-        ');
+        ');;
+            } else {
+                header('location: pagina_iniciar_sesion.php');
+            }
+        }
     }
+
+
 
     public static function footerTemplate($controller)
     {
@@ -178,7 +212,11 @@ class Page
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Inicializadores de materialize -->
-        <script type="text/javascript" src="../../resources/js/inicializadores.js"></script>
+        <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="../../core/controllers/commerce/account.js"></script>   
+        <script type="text/javascript" src="../../core/helpers/components.js"></script>
+        <script type="text/javascript" src="../../resources/js/inicializadores.js"></script>        
+        <script type="text/javascript" src="../../core/controllers/commerce/'.$controller.'"></script>
         </body>
 
         </html>

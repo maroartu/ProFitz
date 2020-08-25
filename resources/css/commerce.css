@@ -222,3 +222,23 @@ div.footer-copyright.footer-copyright-estilo {
 .imagen-producto-principal-distancia {
     margin-top: 90px;
 }
+
+/********************************Carrito de compra******************************************/
+
+/* Caja donde se encuentran los productos */
+.carrito_compra_productos{
+    border-radius: 1em;
+}
+
+.carrito_compra_productos a{
+    margin-bottom: 15px;
+}
+
+/* Botones de dirección y finalizar compra del carrito de comrpas */
+.direccion_carrito_compra{
+    margin-bottom: 15px;
+}
+
+.finalizar_compra_carrito_compra{
+    margin-bottom: 15px;
+}
