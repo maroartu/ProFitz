@@ -1,5 +1,5 @@
 <?php
-require_once('../../core/helpers/commerce_ingles.php');
+require_once('../../core/helpers/commerce.php');
 Page::headerTemplate('Página principal');
 ?>
 
@@ -37,6 +37,13 @@ Page::headerTemplate('Página principal');
                     </h2>
                 </div>
             </div>
+        </div>
+
+        <div class="container">
+            <!-- Título para la página web -->
+            <h4 class="center indigo-text" id="title">Nuestro catálogo</h4>
+            <!-- Fila para mostrar las categorías disponibles -->
+            <div class="row" id="categorias"></div>
         </div>
 
         <!-- Carrusel Tipo de producto bicicleta-->

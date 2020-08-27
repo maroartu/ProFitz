@@ -1,5 +1,5 @@
 <?php
-require_once('../../core/helpers/commerce_ingles.php');
+require_once('../../core/helpers/commerce.php');
 Page::headerTemplate('ProFitz');
 ?>
 

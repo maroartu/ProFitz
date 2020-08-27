@@ -41,7 +41,7 @@ class Page
                     <div class="navbar-fixed">
                         <nav class="grey darken-4">
                             <div class="nav-wrapper">
-                                <a href="index.php" class="brand-logo"><img src="../../resources/img/logos_tienda/logo_mini_blanco.png" height="6   0"></a>
+                                <a href="index.php" class="brand-logo"><img src="../../resources/img/logos_tienda/logo_mini_blanco.png" height="60"></a>
                                 <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                                 <ul class="right hide-on-med-and-down">
                                     <li><a href="index.php"><i class="material-icons left">view_module</i>Catálogo</a></li>
